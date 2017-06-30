@@ -11,8 +11,11 @@ function gameMain(){
 	var showStatus = document.getElementById("showStatus");
 	var playListDisplay = document.getElementById("list");
 
-	var djList =["MARTIN GARRIX", "HARDWELL", "ARMIN VAN BUUREN", "TIESTO", "DAVID GUETTA", "STEVE AOKI", "SKRILLEX", "CALVIN HARRIS", "THE CHAINSMOKERS", "KYGO"];
-	var musicList = ["ANIMALS BY MARTIN GARRIX", "SPACEMAN BY HARDWELL", "GREAT SPIRIT BY ARMIN VAN BUUREN", "THE ONLY WAY IS UP BY TIESTO", "2U BY DAVID GUETTA", "TURBULENCE BY STEVE AOKI", "BANGARANG BY SKRILLEX", "HOW DEEP IS YOUR LOVE BY CALVIN HARRIS", "CLOSER BY THE CHAINSMOKERS", "FIRESTONE BY KYGO"];
+	// var djList =["MARTIN GARRIX", "HARDWELL", "ARMIN VAN BUUREN", "TIESTO", "DAVID GUETTA", "STEVE AOKI", "SKRILLEX", "CALVIN HARRIS", "THE CHAINSMOKERS", "KYGO"];
+	// var musicList = ["ANIMALS BY MARTIN GARRIX", "SPACEMAN BY HARDWELL", "GREAT SPIRIT BY ARMIN VAN BUUREN", "THE ONLY WAY IS UP BY TIESTO", "2U BY DAVID GUETTA", "TURBULENCE BY STEVE AOKI", "BANGARANG BY SKRILLEX", "HOW DEEP IS YOUR LOVE BY CALVIN HARRIS", "CLOSER BY THE CHAINSMOKERS", "FIRESTONE BY KYGO"];
+
+	var djList =["MARTIN GARRIX", "HARDWELL", "ARMIN VAN BUUREN"];
+	var musicList = ["ANIMALS BY MARTIN GARRIX", "SPACEMAN BY HARDWELL", "GREAT SPIRIT BY ARMIN VAN BUUREN"];
 
 	var gameObject = {
 		solutionArray: [],
@@ -26,6 +29,8 @@ function gameMain(){
 		wins: 0,
 		currentSol: 0,
 		prevSol: 0,
+		playList: ['assets/audio/martin-garrix.mp3', 'assets/audio/hardwell.mp3', 'assets/audio/armin-van-buuren.mp3'],
+		audio: new Audio(),
 
 		reset: function(){
 			//clear arrays
@@ -53,6 +58,16 @@ function gameMain(){
 		 	//reset lives
 		 	gameObject.lives = 13;
 		 	remainingGuessDisplay.innerHTML = gameObject.lives;
+
+		 	gameObject.audio.pause();
+		},
+
+		playAudio: function(){
+			var src = gameObject.playList[gameObject.prevSol];
+			console.log(src);
+			var audio = new Audio(src);
+			audio.play();
+			return audio;
 		}
 	};
 
@@ -116,6 +131,8 @@ function gameMain(){
 					gameObject.prevSol = gameObject.currentSol;
 				  gameObject.reset();
 					playListDisplay.innerHTML = musicList[gameObject.prevSol];
+
+					gameObject.audio = gameObject.playAudio();
 				}
 			} else {
 				//if guess is in solutionArray
@@ -144,6 +161,8 @@ function gameMain(){
 					gameObject.prevSol = gameObject.currentSol;
 					gameObject.reset();
 					playListDisplay.innerHTML = musicList[gameObject.prevSol];
+
+					gameObject.audio = gameObject.playAudio();
 
 				}
 			}
