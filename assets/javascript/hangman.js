@@ -76,6 +76,8 @@ function gameMain(){
 					//if lives go down under 1
 					showStatus.innerHTML = "GAME OVER";
 					currentWordDisplay.innerHTML = gameObject.solutionArray;
+
+					//************ need to restart the game
 				}
 			} else {
 				//if guess is in solutionArray
@@ -96,6 +98,8 @@ function gameMain(){
 					//if displayArray doesn't have any "_", win the game
 					showStatus.innerHTML = "YOU GOT IT!";
 					currentWordDisplay.innerHTML = gameObject.solutionArray;
+
+					//************ need to restart the game
 				}
 			}
 		}
