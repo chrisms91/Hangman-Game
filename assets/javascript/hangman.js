@@ -32,7 +32,7 @@ function gameMain(){
 
  	// substituting letters in solutionArray with "_"
  	for(var i=0; i<gameObject.solutionArray.length; i++){
- 		if(alphabet.indexOf(gameObject.solutionArray[i]) == -1){
+ 		if(alphabet.indexOf(gameObject.solutionArray[i]) === -1){
  			gameObject.displayArray.push(gameObject.solutionArray[i]);
  		} else {
  			gameObject.displayArray.push("_");
@@ -64,16 +64,40 @@ function gameMain(){
 			gameObject.guessedArray.push(guess);
 			guessListDisplay.innerHTML = gameObject.guessedArray.join(" &middot; ");
 
-			if(gameObject.solutionArray.indexOf(guess) == -1){
+			if(gameObject.solutionArray.indexOf(guess) === -1){
 				//if guess is not in solutionArray
 				// decrement lives, add guess to wrongArray
 
 				gameObject.lives--;
 				remainingGuessDisplay.innerHTML = gameObject.lives;
+				showStatus.innerHTML = "There is no " + guess;
 
+				if(gameObject.lives < 1){
+					//if lives go down under 1
+					showStatus.innerHTML = "GAME OVER";
+					currentWordDisplay.innerHTML = gameObject.solutionArray;
+				}
+			} else {
+				//if guess is in solutionArray
+				//push into rightArray
+				remainingGuessDisplay.innerHTML = gameObject.lives;
+				showStatus.innerHTML = guess + " works!";
+				gameObject.rightArray.push(guess);
 
+				//update displayArray with right guess
+				for(var j=0; j<gameObject.solutionArray.length; j++){
+					if(gameObject.solutionArray[j] === guess){
+						gameObject.displayArray[j] = guess;
+					}
+				}
+				currentWordDisplay.innerHTML = gameObject.displayArray.join("");
+
+				if(gameObject.displayArray.indexOf("_") === -1){
+					//if displayArray doesn't have any "_", win the game
+					showStatus.innerHTML = "YOU GOT IT!";
+					currentWordDisplay.innerHTML = gameObject.solutionArray;
+				}
 			}
-
 		}
 	};
 }
