@@ -14,6 +14,7 @@
 </head>
 <body>
 
+
 	<div class="container">
 		<!-- Banner -->
 		<div class="row">
@@ -22,10 +23,19 @@
 			</div>
 		</div>
 
+		<!-- Play List -->
+		<div class="row">
+			<div class="col-sm-12">
+				<p class="center-block"> 
+					<span id="list"></span>
+				</p>
+			</div>
+		</div>
+
 		<!-- Main Content -->
 		<div class="row">
 			<!-- Leftside img -->
-			<div class="col-sm-3 col-sm-offset-1 box">
+			<div class="col-sm-3 col-sm-offset-2 box">
 				<img class="img-responsive center-block" src="assets/images/djing.gif">
 			</div>
 
@@ -34,16 +44,16 @@
 				<p>PRESS ANY KEY TO GET STARTED!</p>
 
 				<p>WINS</p>
-				<p id="winDisplay"></p>
+				<p id="winDisplay">0</p>
 
-				<p>Current word:</p>
+				<p>CURRENT WORD:</p>
 				<p id="currentWordDisplay"></p>
 				<p id="showStatus"></p>
 
-				<p>Guesses Remaining: </p>
+				<p>GUESSES REMAINING: </p>
 				<p id="remainingGuessDisplay">13</p>
 
-				<P>Letters already guessed:</P>
+				<P>LETTERS ALREADY GUESSED:</P>
 				<p id="guessListDisplay"></p>
 			</div>
 		</div>
