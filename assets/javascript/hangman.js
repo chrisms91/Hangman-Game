@@ -11,8 +11,8 @@ function gameMain(){
 	var showStatus = document.getElementById("showStatus");
 	var playListDisplay = document.getElementById("list");
 
-	var djList =["MARTIN GARRIX", "HARDWELL", "ARMIN VAN BUUREN"];
-	var musicList = ["ANIMALS BY MARTIN GARRIX", "SPACEMAN BY HARDWELL", "GREAT SPIRIT BY ARMIN VAN BUUREN"];
+	var djList =["MARTIN GARRIX", "HARDWELL", "ARMIN VAN BUUREN", "TIESTO", "DAVID GUETTA", "STEVE AOKI", "SKRILLEX", "CALVIN HARRIS", "THE CHAINSMOKERS", "KYGO"];
+	var musicList = ["ANIMALS BY MARTIN GARRIX", "SPACEMAN BY HARDWELL", "GREAT SPIRIT BY ARMIN VAN BUUREN", "THE ONLY WAY IS UP BY TIESTO", "2U BY DAVID GUETTA", "TURBULENCE BY STEVE AOKI", "BANGARANG BY SKRILLEX", "HOW DEEP IS YOUR LOVE BY CALVIN HARRIS", "CLOSER BY THE CHAINSMOKERS", "FIRESTONE BY KYGO"];
 
 	var gameObject = {
 		solutionArray: [],
@@ -21,7 +21,7 @@ function gameMain(){
 		wrongArray: [],
 		guessedArray: [],
 		musicPlaying: "",
-		lives: 3,
+		lives: 13,
 		currentLetter: "",
 		wins: 0,
 		currentSol: 0,
@@ -51,7 +51,7 @@ function gameMain(){
 		 	currentWordDisplay.innerHTML = gameObject.displayArray.join("");
 
 		 	//reset lives
-		 	gameObject.lives = 3;
+		 	gameObject.lives = 13;
 		 	remainingGuessDisplay.innerHTML = gameObject.lives;
 		}
 	};
@@ -106,49 +106,22 @@ function gameMain(){
 
 				gameObject.lives--;
 				remainingGuessDisplay.innerHTML = gameObject.lives;
-				showStatus.innerHTML = "There is no " + guess;
+				showStatus.innerHTML = "<span class=text-danger> There is no " + guess + "</span>";
 
 				if(gameObject.lives < 1){
 					//if lives go down under 1, lose game
 					showStatus.innerHTML = "GAME OVER";
 					currentWordDisplay.innerHTML = gameObject.solutionArray;
 
-					//************ need to restart the game
-					// gameObject.displayArray = [];
-					// gameObject.rightArray = [];
-					// gameObject.guessedArray = [];
-					// guessListDisplay.innerHTML = "";
-
-					// //re-pick solution
-					// var randNum = Math.floor(Math.random()*djList.length);
-					// gameObject.solutionArray = djList[randNum];
-
-					// console.log("lost, " + gameObject.solutionArray);
-
-					// //reset display
-				 // 	for(var i=0; i<gameObject.solutionArray.length; i++){
-				 // 		if(alphabet.indexOf(gameObject.solutionArray[i]) === -1){
-				 // 			gameObject.displayArray.push(gameObject.solutionArray[i]);
-				 // 		} else {
-				 // 			gameObject.displayArray.push("_");
-				 // 		}
-				 // 	}
-
-				 // 	currentWordDisplay.innerHTML = gameObject.displayArray.join("");
-
-				 // 	gameObject.lives = 3;
-				 // 	remainingGuessDisplay.innerHTML = gameObject.lives;
-				 gameObject.prevSol = gameObject.currentSol;
-				 gameObject.reset();
-				 playListDisplay.innerHTML = musicList[gameObject.prevSol];
-
-
+					gameObject.prevSol = gameObject.currentSol;
+				  gameObject.reset();
+					playListDisplay.innerHTML = musicList[gameObject.prevSol];
 				}
 			} else {
 				//if guess is in solutionArray
 				//push into rightArray
 				remainingGuessDisplay.innerHTML = gameObject.lives;
-				showStatus.innerHTML = guess + " works!";
+				showStatus.innerHTML = "<span class=text-success>" + guess + " works!</span>";
 				gameObject.rightArray.push(guess);
 
 				//update displayArray with right guess
