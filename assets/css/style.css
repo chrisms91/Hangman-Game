@@ -29,7 +29,11 @@ p {
 }
 
 #list {
-	color: grey;
+	color: #8b8a82;
 	font-family: "Slant";
 	font-size: 4em;
+}
+
+i {
+	color: #8b8a82;
 }
