@@ -11,11 +11,8 @@ function gameMain(){
 	var showStatus = document.getElementById("showStatus");
 	var playListDisplay = document.getElementById("list");
 
-	// var djList =["MARTIN GARRIX", "HARDWELL", "ARMIN VAN BUUREN", "TIESTO", "DAVID GUETTA", "STEVE AOKI", "SKRILLEX", "CALVIN HARRIS", "THE CHAINSMOKERS", "KYGO"];
-	// var musicList = ["ANIMALS BY MARTIN GARRIX", "SPACEMAN BY HARDWELL", "GREAT SPIRIT BY ARMIN VAN BUUREN", "THE ONLY WAY IS UP BY TIESTO", "2U BY DAVID GUETTA", "TURBULENCE BY STEVE AOKI", "BANGARANG BY SKRILLEX", "HOW DEEP IS YOUR LOVE BY CALVIN HARRIS", "CLOSER BY THE CHAINSMOKERS", "FIRESTONE BY KYGO"];
-
-	var djList =["MARTIN GARRIX", "HARDWELL", "ARMIN VAN BUUREN"];
-	var musicList = ["ANIMALS BY MARTIN GARRIX", "SPACEMAN BY HARDWELL", "GREAT SPIRIT BY ARMIN VAN BUUREN"];
+	var djList =["MARTIN GARRIX", "HARDWELL", "ARMIN VAN BUUREN", "TIESTO", "DAVID GUETTA", "STEVE AOKI", "SKRILLEX", "CALVIN HARRIS", "THE CHAINSMOKERS", "KYGO"];
+	var musicList = ["ANIMALS BY MARTIN GARRIX", "SPACEMAN BY HARDWELL", "GREAT SPIRIT BY ARMIN VAN BUUREN", "THE ONLY WAY IS UP BY TIESTO", "2U BY DAVID GUETTA", "TURBULENCE BY STEVE AOKI", "BANGARANG BY SKRILLEX", "HOW DEEP IS YOUR LOVE BY CALVIN HARRIS", "CLOSER BY THE CHAINSMOKERS", "FIRESTONE BY KYGO"];
 
 	var gameObject = {
 		solutionArray: [],
@@ -29,7 +26,7 @@ function gameMain(){
 		wins: 0,
 		currentSol: 0,
 		prevSol: 0,
-		playList: ['assets/audio/martin-garrix.mp3', 'assets/audio/hardwell.mp3', 'assets/audio/armin-van-buuren.mp3'],
+		playList: ['assets/audio/martin-garrix.mp3', 'assets/audio/hardwell.mp3', 'assets/audio/armin-van-buuren.mp3', 'assets/audio/tiesto.mpe', 'assets/audio/david-guetta.mp3', 'assets/audio/steve-aoki.mp3', 'assets/audio/skrillex.mp3', 'assets/audio/calvin-harris.mp3', 'assets/audio/the-chainsmokers.mp3', 'assets/audio/kygo.mp3'],
 		audio: new Audio(),
 
 		reset: function(){
