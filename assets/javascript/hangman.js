@@ -21,7 +21,7 @@ function gameMain(){
 		wrongArray: [],
 		guessedArray: [],
 		musicPlaying: "",
-		lives: 13,
+		lives: 7,
 		currentLetter: "",
 		wins: 0,
 		currentSol: 0,
@@ -53,7 +53,7 @@ function gameMain(){
 		 	currentWordDisplay.innerHTML = gameObject.displayArray.join("");
 
 		 	//reset lives
-		 	gameObject.lives = 13;
+		 	gameObject.lives = 7;
 		 	remainingGuessDisplay.innerHTML = gameObject.lives;
 
 		 	gameObject.audio.pause();
