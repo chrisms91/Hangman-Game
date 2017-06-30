@@ -26,7 +26,7 @@ function gameMain(){
 		wins: 0,
 		currentSol: 0,
 		prevSol: 0,
-		playList: ['assets/audio/martin-garrix.mp3', 'assets/audio/hardwell.mp3', 'assets/audio/armin-van-buuren.mp3', 'assets/audio/tiesto.mpe', 'assets/audio/david-guetta.mp3', 'assets/audio/steve-aoki.mp3', 'assets/audio/skrillex.mp3', 'assets/audio/calvin-harris.mp3', 'assets/audio/the-chainsmokers.mp3', 'assets/audio/kygo.mp3'],
+		playList: ['assets/audio/martin-garrix.mp3', 'assets/audio/hardwell.mp3', 'assets/audio/armin-van-buuren.mp3', 'assets/audio/tiesto.mp3', 'assets/audio/david-guetta.mp3', 'assets/audio/steve-aoki.mp3', 'assets/audio/skrillex.mp3', 'assets/audio/calvin-harris.mp3', 'assets/audio/the-chainsmokers.mp3', 'assets/audio/kygo.mp3'],
 		audio: new Audio(),
 
 		reset: function(){
